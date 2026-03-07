@@ -10,6 +10,14 @@ from generate_report import (
 
 OUTPUT_FILE = "dashboard/index.html"
 
+
+FORM_BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdBN4n07N_xvPtpuAi4N_-NwjQK7NuEEfF4LtZM5pAJ_byILw/viewform?usp=header"
+
+FORM_FIELDS = {
+    "Appartement": "entry.735473369",
+    "date de menage": "entry.1999453291"
+}
+
 # =====================================================
 
 def format_date(d):
@@ -20,19 +28,30 @@ def format_time(t):
 
 # =====================================================
 
+def build_form_link(apartment, checkout_date, action="Planifier un ménage"):
+
+    date_str = checkout_date.strftime("%Y-%m-%d")
+
+    url = (
+        f"{FORM_BASE_URL}"
+        f"&{FORM_FIELDS['apartment']}={apartment}"
+        f"&{FORM_FIELDS['date']}={date_str}"
+    )
+
+    return url
+
+    # =====================================================
+
 def build_dashboard(bookings, cleanings):
-    today = date.today()
-    horizon = today + timedelta(days=REPORT_WINDOW_DAYS)
 
     cleanings_by_apartment = {}
+
     for c in cleanings:
         cleanings_by_apartment.setdefault(c["apartment"], []).append(c)
 
     bookings_by_apartment = {}
+
     for b in bookings:
-        checkout = b["checkout"]
-        if checkout < today or checkout > horizon:
-            continue
         bookings_by_apartment.setdefault(b["apartment"], []).append(b)
 
     sxm_now = datetime.now(ZoneInfo("America/Puerto_Rico"))
@@ -45,121 +64,130 @@ def build_dashboard(bookings, cleanings):
     <title>SXM Cleaning Dashboard</title>
 
     <style>
+
     body {{
-        font-family: Arial, sans-serif;
+        font-family: Arial;
         margin: 40px;
-        background: #f5f5f5;
-        color: #222;
+        background:#f5f5f5;
     }}
 
     h1 {{
-        margin-bottom: 5px;
+        margin-bottom:5px;
     }}
 
     h2 {{
-        margin-top: 40px;
-        margin-bottom: 10px;
-        border-bottom: 2px solid #333;
-        padding-bottom: 6px;
+        margin-top:40px;
     }}
 
     table {{
         border-collapse: collapse;
-        width: 100%;
-        background: white;
-        margin-bottom: 20px;
+        width:100%;
+        background:white;
     }}
 
     th, td {{
-        border: 1px solid #ddd;
-        padding: 10px;
-        text-align: center;
+        border:1px solid #ddd;
+        padding:10px;
+        text-align:center;
     }}
 
     th {{
-        background: #333;
-        color: white;
+        background:#333;
+        color:white;
     }}
 
     .ok {{
-        background: #d4edda;
+        background:#d4edda;
     }}
 
     .missing {{
-        background: #f8d7da;
+        background:#f8d7da;
     }}
 
-    .muted {{
-        color: #666;
-        font-size: 14px;
+    .btn {{
+        background:#2b7cff;
+        color:white;
+        padding:6px 10px;
+        border-radius:4px;
+        text-decoration:none;
+        font-size:13px;
     }}
+
     </style>
     </head>
 
     <body>
+
     <h1>SXM Cleaning Dashboard</h1>
-    <p class="muted">Mis à jour : {updated}</p>
+    <p>Mis à jour : {updated}</p>
     """
 
     for apartment in sorted(bookings_by_apartment):
+
         html += f"<h2>{apartment}</h2>"
         html += """
         <table>
         <tr>
-            <th>Checkout</th>
-            <th>Date ménage</th>
-            <th>Heure</th>
-            <th>Cleaner</th>
-            <th>Statut</th>
+        <th>Checkout</th>
+        <th>Cleaning date</th>
+        <th>Cleaner</th>
+        <th>Action</th>
         </tr>
         """
 
         apartment_cleanings = cleanings_by_apartment.get(apartment, [])
 
         for b in sorted(bookings_by_apartment[apartment], key=lambda x: x["checkout"]):
+
             checkout = b["checkout"]
-            matched_cleaning = None
 
-            # Reuse same intelligent date resolution as generate_report.py
-            for c in apartment_cleanings:
-                resolved = parse_date_with_context(c["raw_date"], checkout)
-                if resolved == checkout:
-                    matched_cleaning = c.copy()
-                    matched_cleaning["date"] = resolved
-                    break
+            cleaning = next(
+                (c for c in apartment_cleanings if c["date"] == checkout),
+                None
+            )
 
-            if matched_cleaning:
-                start = format_time(matched_cleaning["time_start"])
-                end = format_time(matched_cleaning["time_end"])
+            # Prefilled form link
+            form_link = build_form_link(apartment, checkout)
 
-                if start and end:
-                    time_str = f"{start}–{end}"
-                else:
-                    time_str = ""
+            if cleaning:
+
+                start = format_time(cleaning["time_start"])
+                end = format_time(cleaning["time_end"])
+
+                time_str = f"{start}-{end}" if start else ""
 
                 html += f"""
                 <tr class="ok">
-                    <td>{format_date(checkout)}</td>
-                    <td>{format_date(matched_cleaning["date"])}</td>
-                    <td>{time_str or '—'}</td>
-                    <td>{matched_cleaning["person"] or '—'}</td>
-                    <td>OK</td>
+                <td>{format_date(checkout)}</td>
+                <td>{format_date(cleaning["date"])} {time_str}</td>
+                <td>{cleaning["person"]}</td>
+                <td>
+                <a href="{form_link}" target="_blank" class="btn">
+                Modifier
+                </a>
+                </td>
                 </tr>
                 """
+
             else:
+
                 html += f"""
                 <tr class="missing">
-                    <td>{format_date(checkout)}</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>Manquant</td>
+                <td>{format_date(checkout)}</td>
+                <td>-</td>
+                <td>-</td>
+                <td>
+                <a href="{form_link}" target="_blank" class="btn">
+                Planifier / Modifier
+                </a>
+                </td>
                 </tr>
                 """
 
         html += "</table>"
 
     html += "</body></html>"
+
     return html
 
 # =====================================================
