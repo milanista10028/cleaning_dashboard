@@ -13,22 +13,45 @@
         color: #222;
     }
 
-    h1 {
-        margin-bottom: 5px;
-    }
-
     h2 {
         margin-top: 40px;
-        margin-bottom: 10px;
         border-bottom: 2px solid #333;
-        padding-bottom: 6px;
     }
+
+    .section-box {
+        background: #ffffff;
+        border-left: 6px solid #2b7cff;
+        padding: 15px;
+        margin-top: 25px;
+        border-radius: 6px;
+    }
+
+    .section-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #2b7cff;
+    }
+
+    .type-title {
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .task {
+        margin-left: 15px;
+        padding: 3px 0;
+    }
+
+    .type-verification { color: #28a745; }
+    .type-nettoyage { color: #007bff; }
+    .type-reassort { color: #ffc107; }
 
     table {
         border-collapse: collapse;
         width: 100%;
         background: white;
-        margin-bottom: 20px;
     }
 
     th, td {
@@ -42,18 +65,12 @@
         color: white;
     }
 
-    .ok {
-        background: #d4edda;
-    }
-
-    .missing {
-        background: #f8d7da;
-    }
+    .ok { background: #d4edda; }
+    .missing { background: #f8d7da; }
 
     .muted {
         font-size: 12px;
         color: #666;
-        margin-top: 4px;
     }
 
     </style>
@@ -61,12 +78,267 @@
 
     <body>
 
-    <h1>SXM Cleaning Dashboard</h1>
-    <p class="muted">Mis à jour : 19/03/2026 23:49</p>
+    <p class="muted">Mis à jour : 22/03/2026 19:41</p>
 
-    <h2>GC-Studio-Haut</h2>
+    <div style="margin:20px 0;">
+        <a href="#checklist" style="margin-right:20px;font-weight:bold;font-size:16px;">
+            📋 Check-list
+        </a>
+
+        <a href="#planning" style="font-weight:bold;font-size:16px;">
+            📅 Planning
+        </a>
+    </div>
+    <h2 id="checklist">Check-list</h2>
+            <div class="section-box">
+                <div class="section-title">EN ARRIVANT</div>
+            
+            <div class="type-title type-verification">
+                Verification
+            </div>
+            
+        <div class="task">
+            ✔ Prendre des photos de ce qui est cassé, abimé ou très sale
+        </div>
+        
+        <div class="task">
+            ✔ Verifier les clés dans les keybox
+        </div>
+        
+        <div class="task">
+            ✔ Vérifier qu'il n'y a pas de vaisselle sale ou cassée. S'il y a de la vaisselle sale, mettez-la au lave-vaisselle en programme 1h. Pas de vaisselle à la main
+        </div>
+        
+            <div class="type-title type-nettoyage">
+                Nettoyage
+            </div>
+            
+        <div class="task">
+            ✔ Lancer machine a laver (blanc dans la machine à laver du couloir, bleu dans la machine à laver du t2)
+        </div>
+        </div>
+            <div class="section-box">
+                <div class="section-title">CUISINE</div>
+            
+            <div class="type-title type-verification">
+                Verification
+            </div>
+            
+        <div class="task">
+            ✔ Vérifier l'état de tous les tiroirs et placards. Nettoyer si besoin
+        </div>
+        
+        <div class="task">
+            ✔ Vérifier que les bidons d'eau de secours soient toujours là (placard sous la table dans le T2, placard sous lévier dans le studio)
+        </div>
+        
+            <div class="type-title type-nettoyage">
+                Nettoyage
+            </div>
+            
+        <div class="task">
+            ✔ Nettoyer l'extérieur des placards
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer la cafetière, la bouilloire, le grille-pain, vérifier l'état du mixeur
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer la poubelle
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer les tabourets (siège et pied)
+        </div>
+        
+        <div class="task">
+            ✔ Vider et nettoyer le frigo et le congélateur
+        </div>
+        
+            <div class="type-title type-reassort">
+                Reassort
+            </div>
+            
+        <div class="task">
+            ✔ 1 bouteille de rhum Ma Doudou
+        </div>
+        
+        <div class="task">
+            ✔ 1 bouteille d’eau dans le frigo
+        </div>
+        
+        <div class="task">
+            ✔ 1 mini serviette pour les mains
+        </div>
+        
+        <div class="task">
+            ✔ 1 torchon
+        </div>
+        
+        <div class="task">
+            ✔ 1 éponge neuve emballée près de l’évier
+        </div>
+        
+        <div class="task">
+            ✔ Sous l’évier dans les boîtes: 5 pastilles pour le lave-vaisselle, 3 sacs poubelles noirs, 1 lavette propre
+        </div>
+        </div>
+            <div class="section-box">
+                <div class="section-title">SALLE DE BAIN</div>
+            
+            <div class="type-title type-nettoyage">
+                Nettoyage
+            </div>
+            
+        <div class="task">
+            ✔ Bien nettoyer les coins de la douche, et les joints
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer la vitre de la douche des deux côtés
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer le siphon de la douche
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer le verre à dents rose
+        </div>
+        
+            <div class="type-title type-reassort">
+                Reassort
+            </div>
+            
+        <div class="task">
+            ✔ 1 grande serviette de bain blanche par personne
+        </div>
+        
+        <div class="task">
+            ✔ 1 mini serviette pour les mains près de chaque lavabo
+        </div>
+        
+        <div class="task">
+            ✔ 1 moyenne serviette blanche par personne
+        </div>
+        
+        <div class="task">
+            ✔ 1 tapis de bain blanc
+        </div>
+        </div>
+            <div class="section-box">
+                <div class="section-title">TOILETTES</div>
+            
+            <div class="type-title type-nettoyage">
+                Nettoyage
+            </div>
+            
+        <div class="task">
+            ✔ Nettoyer les poubelles si elles sont sales
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer les toilettes entièrement: le couvercle, la lunette dessus et dessous, la chasse et la faïence
+        </div>
+        
+            <div class="type-title type-reassort">
+                Reassort
+            </div>
+            
+        <div class="task">
+            ✔ 1 rouleau de papier toilette neuf par porte papier-toilette, plus 2 d'avance (dans le tiroir de la salle de bain pour le T2)
+        </div>
+        
+        <div class="task">
+            ✔ Remettre un sac poubelle propre dans la poubelle
+        </div>
+        </div>
+            <div class="section-box">
+                <div class="section-title">CHAMBRE</div>
+            
+            <div class="type-title type-nettoyage">
+                Nettoyage
+            </div>
+            
+        <div class="task">
+            ✔ Nettoyer l'intérieur des tiroirs, des placards et les tables de nuit
+        </div>
+        
+            <div class="type-title type-reassort">
+                Reassort
+            </div>
+            
+        <div class="task">
+            ✔ 1 serviette bleue de plage par personne
+        </div>
+        
+            <div class="type-title type-autre">
+                Autre
+            </div>
+            
+        <div class="task">
+            ✔ Repasser les draps sur le lit
+        </div>
+        
+        <div class="task">
+            ✔ Toujours ranger le linge dans les tiroirs et les placards et bien fermer à clé
+        </div>
+        
+        <div class="task">
+            ✔ Toujours remettre la rallonge pour le fer à repasser dans le placard de la chambre qui ferme à clé
+        </div>
+        </div>
+            <div class="section-box">
+                <div class="section-title">ENTRÉE</div>
+            
+            <div class="type-title type-reassort">
+                Reassort
+            </div>
+            
+        <div class="task">
+            ✔ 1 tapis de bain vert pour s'essuyer les pieds en rentrant de la plage
+        </div>
+        </div>
+            <div class="section-box">
+                <div class="section-title">PARTOUT</div>
+            
+            <div class="type-title type-nettoyage">
+                Nettoyage
+            </div>
+            
+        <div class="task">
+            ✔ Faire les vitres si elles sont sales
+        </div>
+        
+        <div class="task">
+            ✔ Nettoyer les poignées de porte
+        </div>
+        
+        <div class="task">
+            ✔ Si taches sur les murs ou les portes utiliser une éponge magique blanche
+        </div>
+        </div>
+            <div class="section-box">
+                <div class="section-title">EN PARTANT</div>
+            
+            <div class="type-title type-nettoyage">
+                Nettoyage
+            </div>
+            
+        <div class="task">
+            ✔ Jeter les poubelles
+        </div>
+        
+            <div class="type-title type-autre">
+                Autre
+            </div>
+            
+        <div class="task">
+            ✔ Envoyer les photos avant de quitter l'appartement
+        </div>
+        </div><h2 id="planning">Planning</h2><h3>GC-Studio-Haut</h3>
         <table>
-
         <tr>
             <th>Check out</th>
             <th>Date de ménage</th>
@@ -76,160 +348,124 @@
         </tr>
         
                 <tr class="ok">
-
-                    <td>19-03-2026</td>
-                    <td>19-03-2026</td>
-                    <td>Marine<div class="muted">12:00–14:00</div></td>
-                    <td>
-                19-03-2026
-                <div class="muted">airbnb</div>
-                </td>
-                    <td>OK</td>
-
-                </tr>
-                
-                <tr class="ok">
-
                     <td>26-03-2026</td>
                     <td>26-03-2026</td>
                     <td>Marine<div class="muted">12:00–14:00</div></td>
                     <td>
                 26-03-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>31-03-2026</td>
                     <td>31-03-2026</td>
                     <td>Marine<div class="muted">12:00–14:00</div></td>
                     <td>
                 31-03-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>06-04-2026</td>
                     <td>06-04-2026</td>
                     <td>Alejandra<div class="muted">12:00–14:00</div></td>
                     <td>
                 06-04-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="missing">
-
                     <td>10-04-2026</td>
                     <td>—</td>
                     <td>—</td>
                     <td>
                 10-04-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>Manquant</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>14-04-2026</td>
                     <td>14-04-2026</td>
-                    <td>Jennyfer<div class="muted">00:00–00:00</div></td>
+                    <td>Jennifer<div class="muted">00:00–00:00</div></td>
                     <td>
                 14-04-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="missing">
-
                     <td>18-04-2026</td>
                     <td>—</td>
                     <td>—</td>
                     <td>
-                22-04-2026
-                <div class="muted">airbnb</div>
+                03-05-2026
+                <div class="muted">—</div>
                 </td>
                     <td>Manquant</td>
-
                 </tr>
                 
                 <tr class="ok">
-
-                    <td>29-04-2026</td>
-                    <td>29-04-2026</td>
-                    <td>Alejandra<div class="muted">10:30–12:30</div></td>
-                    <td>
-                03-05-2026
-                <div class="muted">airbnb</div>
-                </td>
-                    <td>OK</td>
-
-                </tr>
-                
-                <tr class="ok">
-
                     <td>10-05-2026</td>
                     <td>10-05-2026</td>
                     <td>Jennifer<div class="muted">00:00–00:00</div></td>
                     <td>
                 02-06-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>04-06-2026</td>
                     <td>04-06-2026</td>
                     <td>Alejandra<div class="muted">12:00–14:00</div></td>
                     <td>
                 07-06-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>14-06-2026</td>
                     <td>14-06-2026</td>
                     <td>Jennifer<div class="muted">10:00–12:00</div></td>
                     <td>
-                24-06-2026
-                <div class="muted">airbnb</div>
+                18-06-2026
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="missing">
-
+                    <td>22-06-2026</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>
+                24-06-2026
+                <div class="muted">—</div>
+                </td>
+                    <td>Manquant</td>
+                </tr>
+                
+                <tr class="missing">
                     <td>28-06-2026</td>
                     <td>—</td>
                     <td>—</td>
                     <td>—</td>
                     <td>Manquant</td>
-
                 </tr>
-                </table><h2>GC-T2</h2>
+                </table><h3>GC-T2</h3>
         <table>
-
         <tr>
             <th>Check out</th>
             <th>Date de ménage</th>
@@ -239,155 +475,131 @@
         </tr>
         
                 <tr class="ok">
-
-                    <td>21-03-2026</td>
-                    <td>21-03-2026</td>
-                    <td>Marine<div class="muted">14:00–16:00</div></td>
-                    <td>
-                21-03-2026
-                <div class="muted">airbnb</div>
-                </td>
-                    <td>OK</td>
-
-                </tr>
-                
-                <tr class="ok">
-
                     <td>23-03-2026</td>
                     <td>23-03-2026</td>
                     <td>Margaux<div class="muted">00:00–00:00</div></td>
                     <td>
                 23-03-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>26-03-2026</td>
                     <td>26-03-2026</td>
                     <td>Marine<div class="muted">00:00–00:00</div></td>
                     <td>
                 26-03-2026
-                <div class="muted">booking</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>07-04-2026</td>
                     <td>07-04-2026</td>
                     <td>Marine<div class="muted">12:00–14:00</div></td>
                     <td>
                 09-04-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>12-04-2026</td>
                     <td>12-04-2026</td>
                     <td>Marine<div class="muted">12:00–14:00</div></td>
                     <td>
                 14-04-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>18-04-2026</td>
                     <td>18-04-2026</td>
                     <td>Marine<div class="muted">12:00–14:00</div></td>
                     <td>
                 18-04-2026
-                <div class="muted">direct</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>24-04-2026</td>
                     <td>25-04-2026</td>
                     <td>Marine<div class="muted">12:00–14:00</div></td>
                     <td>
                 19-05-2026
-                <div class="muted">airbnb</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK (lendemain)</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>02-06-2026</td>
                     <td>02-06-2026</td>
                     <td>Alejandra<div class="muted">11:30–13:30</div></td>
                     <td>
                 13-06-2026
-                <div class="muted">direct</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="missing">
-
                     <td>20-06-2026</td>
                     <td>—</td>
                     <td>—</td>
                     <td>
                 07-07-2026
-                <div class="muted">vrbo</div>
+                <div class="muted">—</div>
                 </td>
                     <td>Manquant</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>07-07-2026</td>
                     <td>07-07-2026</td>
                     <td>Alejandra<div class="muted">00:00–00:00</div></td>
                     <td>
                 07-07-2026
-                <div class="muted">vrbo</div>
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="ok">
-
                     <td>14-07-2026</td>
                     <td>14-07-2026</td>
                     <td>Alejandra<div class="muted">00:00–00:00</div></td>
                     <td>
-                09-08-2026
-                <div class="muted">airbnb</div>
+                26-07-2026
+                <div class="muted">—</div>
                 </td>
                     <td>OK</td>
-
                 </tr>
                 
                 <tr class="missing">
-
+                    <td>29-07-2026</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>
+                09-08-2026
+                <div class="muted">—</div>
+                </td>
+                    <td>Manquant</td>
+                </tr>
+                
+                <tr class="missing">
                     <td>23-08-2026</td>
                     <td>—</td>
                     <td>—</td>
                     <td>—</td>
                     <td>Manquant</td>
-
                 </tr>
                 </table></body></html>
